@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mein Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #000;
+      --text-color: #fff;
+      --link-color: #00ffff;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fff;
+      --text-color: #000;
+      --link-color: #0077ff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: var(--text-color);
+    }
+
+    nav a {
+      color: var(--text-color);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--link-color);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid var(--text-color);
+      color: var(--text-color);
+      padding: 6px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-left: 20px;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('assets/images/hero.jpg') no-repeat center center/cover;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      font-weight: 600;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 100px 40px;
+      background: var(--bg-color);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .social {
+      text-align: center;
+      padding: 40px;
+      background: var(--bg-color);
+    }
+
+    .social a {
+      color: var(--text-color);
+      margin: 0 15px;
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .social a:hover {
+      color: var(--link-color);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      background: var(--bg-color);
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Paul Stolberg</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#social">Social</a>
+      <a href="#contact">Kontakt</a>
+      <button class="theme-toggle" onclick="toggleTheme()">Dark/Light</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Visuelles Portfolio</h2>
+  </section>
+
+  <section class="gallery" id="portfolio">
+    <img src="assets/images/image1.jpg" alt="Projekt 1">
+    <img src="assets/images/image2.jpg" alt="Projekt 2">
+    <img src="assets/images/image3.jpg" alt="Projekt 3">
+    <img src="assets/images/image4.jpg" alt="Projekt 4">
+  </section>
+
+  <section class="social" id="social">
+    <h2>Folge mir</h2>
+    <p>
+      <a href="https://youtube.com/@paulstolberg" target="_blank">YouTube</a>
+      <a href="https://instagram.com/paulstolberg" target="_blank">Instagram</a>
+    </p>
+  </section>
+
+  <footer id="contact">
+    <p>Kontakt: <a href="mailto:you@example.com">you@example.com</a></p>
+    <p>&copy; 2025 Paul Stolberg</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "light" ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", newTheme);
+    }
+  </script>
+</body>
+</html>
